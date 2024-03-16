@@ -9,9 +9,9 @@
 public class ForLoopSum {
 
     public static void main(String[] args) {
-        int total = 0;
+        int total = 10;
 
-        for (int i = 10; i <= 100; i++) {
+        for (int i = 11; i <= 100; i++) {
             total = total + i;
         }
 
