@@ -10,40 +10,66 @@
   
 import java.util.*;
 
-public class GetPolygonArea {
-    private double area;
-
+class Polygon{
     public double squareArea(double side) {
-        this.area = side * side;
-        return area;
+        return side * side;
     }
 
     public double rectangleArea(double length, double width) {
-        this.area = length * width;
-        return area;
+        return length * width;
     }
 
     public double triangleArea(double base, double height) {
-        this.area = 0.5 * base * height;
-        return area;
+        return 0.5 * base * height;
     }
 
     public double circleArea(double radius) {
-        this.area = Math.PI * radius * radius;
-        return area;
+        return Math.PI * radius * radius;
     }
+}
 
+public class GetPolygonArea {
     public static void main(String[] args) {
-        GetPolygonArea result = new GetPolygonArea();
+        Scanner scanner = new Scanner(System.in);
+        Polygon result = new Polygon();
 
-        double squareArea = result.squareArea(5);
-        double rectangleArea = result.rectangleArea(4, 6);
-        double triangleArea = result.triangleArea(3, 4);
-        double circleArea = result.circleArea(7);
+        System.out.println("Choose a Polygon\n1. Square\n2. Rectangle\n3. Triangle\n4. Circle");
+        System.out.print("Enter Choice: ");
+        int userInput = scanner.nextInt();
 
-        System.out.println("Area of the square: " + squareArea);
-        System.out.println("Area of the rectangle: " + rectangleArea);
-        System.out.println("Area of the triangle: " + triangleArea);
-        System.out.println("Area of the circle: " + circleArea);
+        switch (userInput) {
+            case 1:
+                System.out.print("\nPolygon: Square");
+                System.out.print("\nside = ");
+                double side = scanner.nextDouble();
+                System.out.println("The area of the square is: " + result.squareArea(side));
+                break;
+            case 2:
+                System.out.print("\nPolygon: Rectangle");
+                System.out.print("\nlength: ");
+                double rectangleLength = scanner.nextDouble();
+                System.out.print("height: ");
+                double rectangleHeight = scanner.nextDouble();
+                System.out.println("The area of the rectangle is: " +  result.rectangleArea(rectangleLength, rectangleHeight));
+                break;
+            case 3:
+                System.out.print("\nPolygon: Triangle");
+                System.out.print("\nbase: ");
+                double triangleBase = scanner.nextDouble();
+                System.out.print("height: ");
+                double triangleHeight = scanner.nextDouble();
+                System.out.println("The area of the triangle is: " + result.triangleArea(triangleBase, triangleHeight));
+                break;
+            case 4:
+                System.out.print("\nPolygon: Circle");
+                System.out.print("\nradius: ");
+                double radius = scanner.nextDouble();
+                System.out.println("The area of the circle is: " + result.circleArea(radius));
+                break;
+            default:
+                System.out.println("Invalid Input");
+                break;
+        }
+        scanner.close();
     }
 }
